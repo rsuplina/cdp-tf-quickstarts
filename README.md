@@ -17,7 +17,7 @@ To use the module provided here, you will need:
 
 * Terraform can be installed by following the instructions at https://developer.hashicorp.com/terraform/downloads.
 
-* If you have not yet configured your `~/.cdp/credentials file`, follow the steps for [Generating an API access key](https://docs.cloudera.com/cdp-public-cloud/cloud/cli/topics/mc-cli-generating-an-api-access-key.html).
+* If you have not yet configured your `~/.cdp/credentials` file, follow the steps for [Generating an API access key](https://docs.cloudera.com/cdp-public-cloud/cloud/cli/topics/mc-cli-generating-an-api-access-key.html).
 
 * To create resources in the Cloud Provider, access credentials or service account are needed for authentication.
   * For **AWS** access keys are required to be able to create the Cloud resources via the Terraform aws provider. See the [AWS documentation for Managing access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
@@ -115,9 +115,9 @@ terraform apply
 
 ### 4. Monitor Progress
 
-Check the CDP Management Console at [cdp.cloudera.com](https://cdp.cloudera.com).
+You can follow the deployment process on the Cloudera on cloud Management Console from your browser at [cdp.cloudera.com](https://cdp.cloudera.com).
 
-After it completes, you can add CDP  [Data Hubs and Data Services](https://docs.cloudera.com/cdp-public-cloud/cloud/overview/topics/cdp-services.html) to your newly deployed environment from the Management Console UI or using the CLI.
+After it completes, you can add [Data Hubs and Data Services](https://docs.cloudera.com/cdp-public-cloud/cloud/overview/topics/cdp-services.html) to your newly deployed environment from the Management Console UI or using the CLI.
 
 ### Clean Up Resources
 
@@ -133,7 +133,7 @@ terraform destroy
 
 ### SSH keys
 
-By default the Terraform quickstarts will create a new SSH keypair that will be associated with all nodes provisioned by CDP. The private key will be stored in the `<env_prefix>-ssh-key.pem` file of the Terraform cloud provider project directory.
+By default the Terraform quickstarts will create a new SSH keypair that will be associated with all nodes provisioned by Cloudera on cloud. The private key will be stored in the `<env_prefix>-ssh-key.pem` file of the Terraform cloud provider project directory.
 
 To use an existing SSH key, set the keypair name (for AWS) or public key text (for Azure and GCP) variable in the `terraform.tvars` file.
 
