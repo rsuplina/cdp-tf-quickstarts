@@ -37,51 +37,50 @@ Sample contents with indicators of values to change are shown below.
 <details>
     <summary><strong> Expand for AWS configuration file</strong></summary>
 
-```yaml
-# ------- Global settings -------
-env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
+  ```yaml
+  # ------- Global settings -------
+  env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
 
-# ------- Cloud Settings -------
-aws_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. eu-west-1
+  # ------- Cloud Settings -------
+  aws_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. eu-west-1
 
-# ------- CDP Environment Deployment -------
-deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
-
-```
+  # ------- CDP Environment Deployment -------
+  deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
+  ```
 
 </details>
 <br>
 <details>
     <summary><strong> Expand for Azure configuration file</strong></summary>
 
-```yaml
-# ------- Global settings -------
-env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
+  ```yaml
+  # ------- Global settings -------
+  env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
 
-# ------- Cloud Settings -------
-azure_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. eastus
+  # ------- Cloud Settings -------
+  azure_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. eastus
 
-# ------- CDP Environment Deployment -------
-deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
-```
+  # ------- CDP Environment Deployment -------
+  deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
+  ```
 
 </details>
 <br>
 <details>
     <summary><strong> Expand for GCP configuration file</strong></summary>
 
-```yaml
-# ------- Global settings -------
-env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
+  ```yaml
+  # ------- Global settings -------
+  env_prefix = "<ENTER_VALUE>" # Required name prefix for cloud and CDP resources, e.g. cldr1
 
-# ------- Cloud Settings -------
-gcp_project = "<ENTER_VALUE>" # Change this to specify the GCP Project ID
+  # ------- Cloud Settings -------
+  gcp_project = "<ENTER_VALUE>" # Change this to specify the GCP Project ID
 
-gcp_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. europe-west2
+  gcp_region = "<ENTER_VALUE>" # Change this to specify Cloud Provider region, e.g. europe-west2
 
-# ------- CDP Environment Deployment -------
-deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
-```
+  # ------- CDP Environment Deployment -------
+  deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. Options are public, semi-private or private
+  ```
 
 </details>
 
@@ -89,32 +88,32 @@ deployment_template = "<ENTER_VALUE>"  # Specify the deployment pattern below. O
 
 1. Clone this repository using the following commands:
 
-```bash
-# Git clone
-git clone https://github.com/cloudera-labs/cdp-tf-quickstarts.git 
-# Change to directory with the cloned repo
-cd cdp-tf-quickstarts
-```
+    ```bash
+    # Git clone
+    git clone https://github.com/cloudera-labs/cdp-tf-quickstarts.git 
+    # Change to directory with the cloned repo
+    cd cdp-tf-quickstarts
+    ```
 
 1. In the cloned repo, change to required cloud provider directory and create a `terraform.tfvars` file with variable definitions to run the module. Reference the `terraform.tfvars.template` in each cloud provider directory and the example contents discussed in the section above.
 
-```bash
-# Change into cloud provider directory, e.g. for aws
-cd aws
+    ```bash
+    # Change into cloud provider directory, e.g. for aws
+    cd aws
 
-#Copy terraform.tfvars.template into terraform.tfvars
-cp terraform.tfvars.template terraform.tfvars
+    #Copy terraform.tfvars.template into terraform.tfvars
+    cp terraform.tfvars.template terraform.tfvars
 
-# Edit the terraform.tfvars file as needed, e.g. using vi
-vi terraform.tfvars
-```
+    # Edit the terraform.tfvars file as needed, e.g. using vi
+    vi terraform.tfvars
+    ```
 
 1. To create Cloud resources and CDP environment, in the cloud provider directory, run the Terraform commands to initialize and apply the changes:
 
-```bash
-terraform init
-terraform apply
-```
+    ```bash
+    terraform init
+    terraform apply
+    ```
 
 > ⏱️ Typically, deployment will take about 60 minutes. 
 
@@ -127,6 +126,7 @@ If you no longer need the infrastructure and CDP environment that’s provisione
 ```bash
 terraform destroy
 ```
+
 > ⏱️ Cleanup of the deployment will take about 20 minutes.
 
 ## Additional Authentication & Configuration Notes
@@ -159,12 +159,12 @@ To add additional CIDRs or IP ranges, set the optional `ingress_extra_cidrs_and_
 
 * When using a Service Principal (SP) to authenticate with Azure, it is not possible to authenticate with azuread Terraform Provider (the provider used to create the Azure Cross Account AD Application) with the command az login --service-principal. We found the the best way to authenticate using an SP is by setting environment variables. Details of required environment variables are in the [azuread docs](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/service_principal_client_secret#environment-variables) and [azurerm docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform) and summarized below.
 
-```bash
-export ARM_CLIENT_ID="<sp_client_id>"
-export ARM_CLIENT_SECRET="<sp_client_secret>"
-export ARM_TENANT_ID="<sp_tenant_id>"
-export ARM_SUBSCRIPTION_ID="<sp_subscription_id>" 
-```
+  ```bash
+  export ARM_CLIENT_ID="<sp_client_id>"
+  export ARM_CLIENT_SECRET="<sp_client_secret>"
+  export ARM_TENANT_ID="<sp_tenant_id>"
+  export ARM_SUBSCRIPTION_ID="<sp_subscription_id>" 
+  ```
 
 * The Azure API permissions listed are required by the provisioning account to create the Azure pre-requisite resources. Note that all permissions are of type Application (rather than Delegated).
 
@@ -182,21 +182,21 @@ export ARM_SUBSCRIPTION_ID="<sp_subscription_id>"
   1. The Google Cloud SDK (`gcloud`) can be installed and a User Application Default Credentials ("ADCs") can be created by running the command `gcloud auth application-default login`
   1. A Google Cloud Service Account key file can be generated and downloaded. The `GOOGLE_APPLICATION_CREDENTIALS` environment variable can then be set to the location of the file.
 
-  ```bash
-  export GOOGLE_APPLICATION_CREDENTIALS=<location_of_gcp_sa_json_file>
-  ```
+      ```bash
+      export GOOGLE_APPLICATION_CREDENTIALS=<location_of_gcp_sa_json_file>
+      ```
 
 * The Google Cloud IAM roles listed below are required by the provisioning account to create the GCP pre-requisite resources.
 
-| IAM Role                  |
-| ------------------------- |
-| Compute Network Admin     |
-| Compute Security Admin    |
-| Role Administrator        |
-| Security Admin            |
-| Service Account Admin     |
-| Service Account Key Admin |
-| Storage Admin             |
-| Viewer                    |
+  | IAM Role                  |
+  | ------------------------- |
+  | Compute Network Admin     |
+  | Compute Security Admin    |
+  | Role Administrator        |
+  | Security Admin            |
+  | Service Account Admin     |
+  | Service Account Key Admin |
+  | Storage Admin             |
+  | Viewer                    |
 
 * The Google project Id can be specified via the `gcp_project` input variable, the `GOOGLE_PROJECT` environment variable or the default project set via the Cloud SDK. This is described in the [Google Provider Default Values Configuration](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#provider-default-values-configuration) documentation.
