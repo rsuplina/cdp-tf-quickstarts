@@ -1,5 +1,5 @@
 
-# 🚀 Cloudera on cloud Quickstart Using Terraform
+# Cloudera on cloud Quickstart Using Terraform
 
 This repository provides Terraform resources to quickly deploy **Cloudera on Cloud** and associated pre-requisite **Cloud Service Provider (CSP)** resources. It uses the [CDP Terraform Modules](https://github.com/cloudera-labs/terraform-cdp-modules) to do this.
 
